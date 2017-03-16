@@ -1,5 +1,7 @@
 # toStrig macro
 
+[![Build Status](https://travis-ci.org/tototoshi/tostring-macro.png)](https://travis-ci.org/tototoshi/tostring-macro)
+
 
 ```scala
 @toString
