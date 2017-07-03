@@ -19,10 +19,10 @@ class toString extends scala.annotation.StaticAnnotation {
       val className = classDefn.name.toString
       val paramNames = classDefn.ctor.paramss.flatten.map { param =>
         val fieldName = param.name.toString
-        q"""${Lit(fieldName)} + "=" + ${Term.Name(fieldName)}"""
+        q"""${Lit.String(fieldName)} + "=" + ${Term.Name(fieldName)}"""
       }
       val body = paramNames.reduce { (a, b) => q"""$a + ", " + $b""" }
-      val method = q"""override def toString(): String = ${Lit(className)} + "(" + $body + ")""""
+      val method = q"""override def toString(): String = ${Lit.String(className)} + "(" + $body + ")""""
       addStat(classDefn, method)
     }
 
